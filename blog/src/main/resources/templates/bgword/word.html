@@ -1,0 +1,23 @@
+<main>
+
+    <form class="form-horizontal" th:action="@{/game/bgword}" method="post">
+    <input th:value="${wordlist[0].word}" name="AA" />
+    <input type="text" name="A"/> <br/>
+
+    <input th:value="${wordlist[1].word}" name="BB"/>
+    <input type="text" name="B"/> <br/>
+
+    <input th:value="${wordlist[2].word}" name="CC"/>
+    <input type="text" name="C"/> <br/>
+
+    <input th:value="${wordlist[3].word}" name="DD"/>
+        <input type="text" name="D"/> <br/>
+
+    <input th:value="${wordlist[4].word}" name="EE"/>
+        <input type="text" name="E"/> <br/>
+
+        <input type="submit" value="prashtai"/>
+    </form>
+
+
+</main>

@@ -1,0 +1,32 @@
+<main>
+    <div class="container body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/essay/edit/{id}(id=${essay.id})}" method="POST">
+                <fieldset>
+                    <legend>Промени есе</legend>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_title">Заглавие</label>
+                        <div class="col-sm-4 ">
+                            <input type="text" class="form-control" id="article_title" placeholder="Post Title" name="title" th:value="${essay.title}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="article_content">Съдържание</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" rows="6" id="article_content" name="content" th:field="${essay.content}"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a class="btn btn-default" th:href="@{/essay/{id}(id = ${essay.id})}">Cancel</a>
+                            <input type="submit" class="btn btn-success" value="Въведи промените"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
