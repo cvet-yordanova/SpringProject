@@ -11,6 +11,7 @@ import softuniBlog.repository.EssayRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @Controller
 public class HomeController {
@@ -22,22 +23,12 @@ private EssayRepository essayRepository;
     @GetMapping("/")
     public String index(Model model) {
 
-    List<Essay> essays = this.essayRepository.findAll();
+    List<Essay> essays = this.essayRepository.findAll().stream()
+            .sorted((a, b) -> b.getDate().compareTo(a.getDate()))
+                .limit(2)
+                .collect(Collectors.toList());
 
-     //   List<Essay> essays = new ArrayList<Essay>();
 
-  //  int size = this.essayRepository.findAll().size();
-        Random random = new Random();
-        int r = random.nextInt(4);
-
-     //   for(int i =0; i < 2; i++){
-      //      int id = random.nextInt(size);
-      //      essays.add(this.essayRepository.findOne(id));
-      //  }
-     //   essays.add(this.essayRepository.findOne(r));
-
-        model.addAttribute("random",essays.get(0).getDate());
-      //  model.addAttribute("number",r);
         model.addAttribute("view", "home/index");
         model.addAttribute("essays",essays);
 

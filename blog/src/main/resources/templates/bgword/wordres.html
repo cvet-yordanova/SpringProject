@@ -1,17 +1,90 @@
 <main>
+    <div class=" body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/game/bgword}" method="post">
+                <fieldset>
+                    <legend>Вашият резултат е</legend>
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input th:value="${givenwords[0]}" class="form-control custom-input" type="text" name="AA" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input th:value="${inputwords[0]}" class="form-control custom-input" type="text"  name="A" required="required" autocomplete="off"/>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <input th:value="${result[0]}" class="form-control custom-input" type="text"  name="A" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input th:value="${givenwords[1]}" class="form-control custom-input" type="text" name="BB" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input th:value="${inputwords[1]}" class="form-control custom-input" type="text"  name="B" required="required" autocomplete="off"/>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <input th:value="${result[1]}" class="form-control custom-input" type="text"  name="B" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input th:value="${givenwords[2]}" class="form-control custom-input" type="text" name="CC" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input th:value="${inputwords[2]}" class="form-control custom-input" type="text"  name="C" required="required" autocomplete="off"/>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <input th:value="${result[2]}" class="form-control custom-input" type="text"  name="C" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input th:value="${givenwords[3]}" class="form-control custom-input" type="text" name="DD" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input th:value="${inputwords[3]}" class="form-control custom-input" type="text"  name="D" required="required" autocomplete="off"/>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <input th:value="${result[3]}" class="form-control custom-input" type="text"  name="D" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input th:value="${givenwords[4]}" class="form-control custom-input" type="text" name="EE" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input th:value="${inputwords[4]}" class="form-control custom-input" type="text"  name="E" required="required" autocomplete="off"/>
+                        </div>
+                        <div class="col-sm-2 ">
+                            <input th:value="${result[4]}" class="form-control custom-input" type="text"  name="E" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
 
 
+                    <div class="col-md-10">
+                        <div class="col-sm-3 col-sm-offset-8">
+                            <a class="btn btn-default" th:href="@{/test}">Нови Думи</a>
+
+                        </div>
+                    </div>
 
 
-                    <h3 th:text="${ever}"></h3>
-
-
-    <th:block th:each="essay : ${items}">
-
-
-                <p th:text="${essay}"></p>
-
-    </th:block>
-
-
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </main>

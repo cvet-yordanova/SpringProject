@@ -11,6 +11,7 @@
 	<name>Blog</name>
 	<description>Blog Project from the Software Technologies Course</description>
 
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -23,6 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
 
 	<dependencies>
 		<dependency>
@@ -64,7 +66,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			<configuration>
+
+			</configuration>
+
 			</plugin>
+
+
 		</plugins>
 	</build>
 

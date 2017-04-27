@@ -1,28 +1,39 @@
 <main>
-    <div class="container body-content span=8 offset=2">
+    <div class="container body-content span=3 ">
         <div class="well">
-            <form class="form-horizontal" th:action="@{/essay/delete/{id}(id=${essay.id})}" method="POST">
+            <form class="form-horizontal" th:action="@{/essay/delete/{id}(id=${essay.id})}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <fieldset>
-                    <legend>Delete Post</legend>
+                    <legend>Ново есе</legend>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label" for="article_title">Post Title</label>
+                        <label class="col-sm-4 control-label" for="article_title" >Заглавие на есето</label>
                         <div class="col-sm-4 ">
-                            <input type="text" class="form-control" id="article_title" placeholder="Post Title" name="title" th:value="${essay.title}" disabled="disabled"/>
+                            <input type="text" class="form-control" id="article_title" placeholder="Заглавие на есето"
+                                   name="title" th:value="${essay.title}" disabled="disabled"/>
+                        </div>
+
+                        <label class="col-sm-4 control-label" for="article_title" >Избери Автор</label>
+                        <div class="col-sm-4 ">
+
+                            <select class="form-control" id="article_category" name="bgtitleid" disabled="disabled">
+                                <option th:each="bgtitle : ${bgtitles}" th:value="${bgtitle.id}" th:text="${bgtitle.title}"  th:selected="${bgtitle.id == essay.bgTitle.id}"></option>
+                            </select>
+
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label" for="article_content">Content</label>
-                        <div class="col-sm-6">
-                            <textarea class="form-control" rows="6" id="article_content" name="content" th:field="${essay.content}" disabled="disabled"></textarea>
+                        <label class="essay-label" for="article_content">Съдържание</label>
+                        <div class="col-lg-12">
+                            <textarea class="form-control" rows="5" id="article_content" name="content" th:field="${essay.content}" disabled="disabled"></textarea>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <a class="btn btn-default" th:href="@{/essay/{id}(id = ${essay.id})}">Cancel</a>
-                            <input type="submit" class="btn btn-danger" value="Delete"/>
+                        <div class="col-sm-4 ">
+                            <a class="btn btn-default" th:href="@{/}">Отказ</a>
+                            <input type="submit" class="btn btn-primary" value="Изтрий"/>
+
                         </div>
                     </div>
                 </fieldset>
@@ -30,3 +41,4 @@
         </div>
     </div>
 </main>
+

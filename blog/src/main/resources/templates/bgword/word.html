@@ -1,23 +1,75 @@
 <main>
+    <div class=" body-content span=8 offset=2">
+        <div class="well">
+            <form class="form-horizontal" th:action="@{/test}" method="post">
+                <fieldset>
+                    <legend>Напишете правилно думите</legend>
+                    <div class="col-md-12">
 
-    <form class="form-horizontal" th:action="@{/game/bgword}" method="post">
-    <input th:value="${wordlist[0].word}" name="AA" />
-    <input type="text" name="A"/> <br/>
+                        <div class="col-sm-3 col-sm-offset-3">
+                            <input th:value="${wordlist[0].word}" class="form-control custom-input" type="text" name="AA" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input class="form-control custom-input" type="text"  name="A" required="required" autocomplete="off"/>
+                        </div>
 
-    <input th:value="${wordlist[1].word}" name="BB"/>
-    <input type="text" name="B"/> <br/>
+                    </div>
 
-    <input th:value="${wordlist[2].word}" name="CC"/>
-    <input type="text" name="C"/> <br/>
+                    <div class="col-md-12">
 
-    <input th:value="${wordlist[3].word}" name="DD"/>
-        <input type="text" name="D"/> <br/>
+                        <div class="col-sm-3 col-sm-offset-3">
+                            <input th:value="${wordlist[1].word}" class="form-control custom-input" type="text" name="BB" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input class="form-control custom-input" type="text"  name="B" required="required" autocomplete="off"/>
+                        </div>
 
-    <input th:value="${wordlist[4].word}" name="EE"/>
-        <input type="text" name="E"/> <br/>
+                    </div>
 
-        <input type="submit" value="prashtai"/>
-    </form>
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-3">
+                            <input th:value="${wordlist[2].word}" class="form-control custom-input" type="text" name="CC" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input class="form-control custom-input" type="text"  name="C" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-3">
+                            <input th:value="${wordlist[3].word}" class="form-control custom-input" type="text" name="DD" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input class="form-control custom-input" type="text"  name="D" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="col-sm-3 col-sm-offset-3">
+                            <input th:value="${wordlist[4].word}" class="form-control custom-input" type="text" name="EE" readonly="true"/>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <input class="form-control custom-input" type="text"  name="E" required="required" autocomplete="off"/>
+                        </div>
+
+                    </div>
 
 
+                    <div class="col-md-10">
+                        <div class="col-sm-3 col-sm-offset-8">
+                            <a class="btn btn-default" th:href="@{/test}">Нови Думи</a>
+                            <input value="Провери" type="submit" class="btn btn-primary"/>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
 </main>

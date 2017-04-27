@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<main>
+    <div class="container body-content">
+        <div class="row">
+            <th:block th:each="essay : ${essays}">
+                <div class="col-md-6">
+                    <article>
+                        <header>
+                            <h2 th:text="${essay.title}"></h2>
+                            <small th:text="${#dates.format(essay.date, 'dd-MM-yyyy')}"></small>
+                        </header>
+
+                        <p th:text="${essay.summary}"></p>
+
+                        <small class="author" th:text="${essay.author.fullName}"></small>
+
+                        <footer>
+                            <div class="pull-right">
+                                <a class="btn btn-default btn-xs"
+                                   th:href="@{/essay/{id}(id=${essay.id})}">Прочети цялото есе &raquo;</a>
+                            </div>
+
+                        </footer>
+                    </article>
+
+
+                </div>
+            </th:block>
+
+        </div>
+    </div>
+</main>

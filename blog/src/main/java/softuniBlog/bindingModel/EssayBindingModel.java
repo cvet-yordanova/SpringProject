@@ -9,10 +9,10 @@ public class EssayBindingModel {
     private String title;
 
     @NotNull
-    private String bgtitle;
+    private String content;
 
     @NotNull
-    private String content;
+    private Integer bgtitleid;
 
     public String getTitle() {
         return title;
@@ -22,13 +22,6 @@ public class EssayBindingModel {
         this.title = title;
     }
 
-    public String getBgtitle() {
-        return bgtitle;
-    }
-
-    public void setBgtitle(String bgtitle) {
-        this.bgtitle = bgtitle;
-    }
 
     public String getContent() {
         return content;
@@ -36,5 +29,13 @@ public class EssayBindingModel {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Integer getBgtitleid() {
+        return bgtitleid;
+    }
+
+    public void setBgtitleid(Integer bgtitleid) {
+        this.bgtitleid = bgtitleid;
     }
 }

@@ -23,7 +23,7 @@ public class BGWordController {
     private BGWordRepository bgWordRepository;
 
 
-    @GetMapping("game/bgword")
+    @GetMapping("/test")
     public String listwords(Model model){
 
         Random random = new Random();
@@ -51,24 +51,31 @@ public class BGWordController {
         model.addAttribute("wordlist", bgWords);
         model.addAttribute("view","bgword/word");
 
+
         return "base-layout";
     }
 
-    @PostMapping("/game/bgword")
+    @PostMapping("/test")
     public String check(BGWordTestModel bgWordTestModel, Model model){
 
         List<String> result = new ArrayList<String>();
 
         String everything = bgWordTestModel.getEverythingAsString();
-        String ever = bgWordTestModel.getString();
         List<String> list = Arrays.asList(everything.split(" "));
-        List<String> items = Arrays.stream(everything.toString().split(",+")).collect(Collectors.toList());
-        items.stream().forEach(a -> a.trim());
+        list.stream().forEach(a -> a.trim());
+
+        List<String> givenwords = new ArrayList<>();
+        List<String> inputwords = new ArrayList<>();
+
         for (int i = 0; i<10; i+=2){
 
            String word =list.get(i).toString();
-            String input = list.get(i+1).toString();
-            if(isCorrect(word, input)){
+           String input = list.get(i+1).toString();
+
+           givenwords.add(word);
+           inputwords.add(input);
+
+            if(isCorrect(this.bgWordRepository.findByWord(word).getCorrect(), input)){
                 result.add("Вярно");
             }
             else {
@@ -77,9 +84,8 @@ public class BGWordController {
 
        }
 
-
-        model.addAttribute("ever", list.get(0));
-        model.addAttribute("items",result);
+        model.addAttribute("givenwords",givenwords);
+        model.addAttribute("inputwords",inputwords);
         model.addAttribute("result", result);
         model.addAttribute("view","bgword/wordres");
 

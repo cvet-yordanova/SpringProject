@@ -59,18 +59,4 @@ public class BGWordTestModel {
     }
 
 
-    public String getString() {
-        return "BGWordTestModel{" +
-                "AA='" + AA + '\'' +
-                ", BB='" + BB + '\'' +
-                ", CC='" + CC + '\'' +
-                ", DD='" + DD + '\'' +
-                ", EE='" + EE + '\'' +
-                ", A='" + A + '\'' +
-                ", B='" + B + '\'' +
-                ", C='" + C + '\'' +
-                ", D='" + D + '\'' +
-                ", E='" + E + '\'' +
-                '}';
-    }
 }

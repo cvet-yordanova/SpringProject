@@ -1,24 +1,26 @@
 package softuniBlog.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "bgtitles")
 public class BGTitle {
 
     private Integer id;
 
     private String title;
 
-    private String plan;
-
-    private String text;
-
     private Set<Essay> essays;
 
-    private Set<BGCharacter> characters;
+    public BGTitle() {
+    }
 
-//new hash set
+    public BGTitle(String title){
+        this.title=title;
+        this.essays = new HashSet<>();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +32,7 @@ public class BGTitle {
         this.id = id;
     }
 
-    @Column
+    @Column(nullable = false, unique = true)
     public String getTitle() {
         return title;
     }
@@ -39,25 +41,7 @@ public class BGTitle {
         this.title = title;
     }
 
-    @Column(columnDefinition = "text")
-    public String getPlan() {
-        return plan;
-    }
-
-    public void setPlan(String plan) {
-        this.plan = plan;
-    }
-
-    @Column(columnDefinition = "text")
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @OneToMany
+    @OneToMany(mappedBy = "bgTitle")
     public Set<Essay> getEssays() {
         return essays;
     }
@@ -65,13 +49,6 @@ public class BGTitle {
     public void setEssays(Set<Essay> essays) {
         this.essays = essays;
     }
+    
 
-    @OneToMany
-    public Set<BGCharacter> getCharacters() {
-        return characters;
-    }
-
-    public void setCharacters(Set<BGCharacter> characters) {
-        this.characters = characters;
-    }
 }

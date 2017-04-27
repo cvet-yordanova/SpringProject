@@ -14,9 +14,9 @@ public class Essay {
 
     private String content;
 
-    private BGTitle bgTitle;
+    public BGTitle bgTitle;
 
-    private Date date= new Date();
+    private Date date = new Date();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,7 +38,7 @@ public class Essay {
     }
 
     @ManyToOne
-    @JoinColumn(name="bgauthorid", nullable = false)
+    @JoinColumn(name="authorId", nullable = false)
     public User getAuthor() {
         return author;
     }
@@ -57,7 +57,7 @@ public class Essay {
     }
 
     @ManyToOne
-    @JoinColumn(name="bgtitleid")
+    @JoinColumn(name="bgtitleid", nullable = false)
     public BGTitle getBgTitle() {
         return bgTitle;
     }
@@ -77,11 +77,11 @@ public class Essay {
 
     public Essay() {}
 
-    public Essay(String title, BGTitle bgTitle, String content, User author) {
+    public Essay(String title, BGTitle bgtitle, String content, User author) {
         this.title = title;
         this.author = author;
         this.content = content;
-        this.bgTitle = bgTitle;
+        this.bgTitle = bgtitle;
     }
 
     @Transient

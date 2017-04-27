@@ -1,7 +1,7 @@
 <main>
     <div class="container body-content span=3 ">
         <div class="well">
-            <form class="form-horizontal" th:action="@{/essay/create}" method="POST">
+            <form class="form-horizontal" th:action="@{/essay/create}" method="POST" enctype="multipart/form-data" accept-charset="UTF-8">
                 <fieldset>
                     <legend>Ново есе</legend>
 
@@ -14,43 +14,11 @@
 
                         <label class="col-sm-4 control-label" for="article_title" >Избери Автор</label>
                         <div class="col-sm-4 ">
-                            <div class="col-sm-2">
-                                <select class="selection" size="1" name="bgtitle">
-                                    <optgroup label="Picnic">
-                                        <option>Mustard</option>
-                                        <option>Ketchup</option>
-                                        <option>Relish</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                    </optgroup>
-                                    <optgroup label="Camping">
-                                        <option>Tent</option>
-                                        <option>Flashlight</option>
-                                        <option>Toilet Paper</option>
-                                    </optgroup>
-                                    <optgroup label="Camping">
-                                        <option>Tent</option>
-                                        <option>Flashlight</option>
-                                        <option>Toilet Paper</option>
-                                    </optgroup>
-                                    <optgroup label="Camping">
-                                        <option>Tent</option>
-                                        <option>Flashlight</option>
-                                        <option>Toilet Paper</option>
-                                    </optgroup>
-                                </select>
-
-                            </div>
-
+                            <select class="form-control" id="article_category" name="bgtitleid">
+                                <option th:each="bgtitle : ${bgtitles}" th:value="${bgtitle.id}" th:text="${bgtitle.title}"></option>
+                            </select>
                         </div>
                     </div>
-
-
-
 
                     <div class="form-group">
                         <label class="essay-label" for="article_content">Съдържание</label>
@@ -61,8 +29,8 @@
 
                     <div class="form-group">
                         <div class="col-sm-4 ">
-                            <a class="btn btn-default" th:href="@{/}">Cancel</a>
-                            <input type="submit" class="btn btn-primary" value="Submit"/>
+                            <a class="btn btn-default" th:href="@{/}">Отказ</a>
+                            <input type="submit" class="btn btn-primary" value="Изпрати"/>
 
                         </div>
                     </div>
