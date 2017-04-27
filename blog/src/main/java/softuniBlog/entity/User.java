@@ -17,6 +17,8 @@ public class User {
 
     private String password;
 
+    private String imagepath;
+
     private Set<Role> roles;
 
     private Set<Essay> essays;
@@ -27,6 +29,19 @@ public class User {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
+
+        this.roles = new HashSet<>();
+        this.essays = new HashSet<>();
+
+
+    }
+
+    public User(String email, String fullName,
+                String password, String imagepath) {
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.imagepath = imagepath;
 
         this.roles = new HashSet<>();
         this.essays = new HashSet<>();
@@ -111,5 +126,13 @@ public class User {
     public boolean isAuthor(Essay essay){
         return Objects.equals(this.getId(),
                 essay.getAuthor().getId() );
+    }
+
+    public String getImagepath() {
+        return imagepath;
+    }
+
+    public void setImagepath(String imagepath) {
+        this.imagepath = imagepath;
     }
 }

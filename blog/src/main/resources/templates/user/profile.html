@@ -2,6 +2,7 @@
     <div class="container body-container">
         <div class="row">
             <div id="main" class="col-sm-9">
+                <img th:if="${user.imagepath!= null}"   th:src="${user.imagepath}" width="200px"/>
                 <div>
                     <span th:text="${user.email}"></span>
                     <br/>

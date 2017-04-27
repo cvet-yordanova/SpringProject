@@ -11,6 +11,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import softuniBlog.bindingModel.EssayBindingModel;
 import softuniBlog.bindingModel.UserBindingModel;
 import softuniBlog.entity.Role;
@@ -19,6 +20,9 @@ import softuniBlog.repository.RoleRepository;
 import softuniBlog.repository.UserRepository;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 
 @Controller
 public class UserController {
@@ -45,11 +49,41 @@ public class UserController {
         }
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String imageDatabasePath = null;
+
+        String[] allowedTypes = {
+                "image/png",
+                "image/jpg",
+                "image/jpeg"
+        };
+        boolean isTypeAllowed = Arrays.asList(allowedTypes).contains(userBindingModel.getImage().getContentType());
+
+        if(isTypeAllowed){
+
+            String imagesPath = "\\src\\main\\resources\\static\\images\\";
+            String imagePathRoot = System.getProperty("user.dir");
+            String imageSaveDirectory = imagePathRoot+imagesPath;
+            String filename = userBindingModel.getImage().getOriginalFilename();
+            String savePath = imageSaveDirectory+filename;
+
+
+            File imageFile = new File(savePath);
+            try {
+                userBindingModel.getImage().transferTo(imageFile);
+                imageDatabasePath = "/images/" + filename;
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+
+
+        }
+
 
         User user = new User(
                 userBindingModel.getEmail(),
                 userBindingModel.getFullName(),
-                bCryptPasswordEncoder.encode(userBindingModel.getPassword())
+                bCryptPasswordEncoder.encode(userBindingModel.getPassword()),
+                imageDatabasePath
         );
 
         Role userRole = this.roleRepository.findByName("ROLE_USER");
