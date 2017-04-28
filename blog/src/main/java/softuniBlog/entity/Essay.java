@@ -86,6 +86,6 @@ public class Essay {
 
     @Transient
     public String getSummary(){
-        return this.getContent().substring(0,this.getContent().length()/2)+"...";
+        return this.getContent().substring(0,this.getContent().length()/3)+"...";
     }
 }

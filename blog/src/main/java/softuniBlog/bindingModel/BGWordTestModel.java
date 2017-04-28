@@ -46,15 +46,15 @@ public class BGWordTestModel {
     public String getEverythingAsString(){
 
        String result=this.getAA();
-        result+=" "+this.getA();
-        result+=" "+this.getBB();
-        result+=" "+this.getB();
-        result+=" "+this.getCC();
-        result+=" "+this.getC();
-        result+=" "+this.getDD();
-        result+=" "+this.getD();
-        result+=" "+this.getEE();
-        result+=" "+this.getE();
+        result+=","+this.getA();
+        result+=","+this.getBB();
+        result+=","+this.getB();
+        result+=","+this.getCC();
+        result+=","+this.getC();
+        result+=","+this.getDD();
+        result+=","+this.getD();
+        result+=","+this.getEE();
+        result+=","+this.getE();
         return result;
     }
 

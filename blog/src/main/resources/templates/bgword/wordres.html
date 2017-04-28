@@ -3,7 +3,7 @@
         <div class="well">
             <form class="form-horizontal" th:action="@{/game/bgword}" method="post">
                 <fieldset>
-                    <legend>Вашият резултат е</legend>
+                    <legend>Резултат:</legend>
                     <div class="col-md-12">
 
                         <div class="col-sm-3 col-sm-offset-2">
@@ -21,7 +21,7 @@
                     <div class="col-md-12">
 
                         <div class="col-sm-3 col-sm-offset-2">
-                            <input th:value="${givenwords[1]}" class="form-control custom-input" type="text" name="BB" readonly="true"/>
+                            <input th:value="${givenwords[1]}" class="form-control custom-input " type="text" name="BB" readonly="true"/>
                         </div>
                         <div class="col-sm-3 ">
                             <input th:value="${inputwords[1]}" class="form-control custom-input" type="text"  name="B" required="required" autocomplete="off"/>
@@ -41,7 +41,7 @@
                             <input th:value="${inputwords[2]}" class="form-control custom-input" type="text"  name="C" required="required" autocomplete="off"/>
                         </div>
                         <div class="col-sm-2 ">
-                            <input th:value="${result[2]}" class="form-control custom-input" type="text"  name="C" required="required" autocomplete="off"/>
+                            <input th:value="${result[2]}" class="form-control custom-input"  type="text"  name="C" required="required" autocomplete="off"/>
                         </div>
 
                     </div>

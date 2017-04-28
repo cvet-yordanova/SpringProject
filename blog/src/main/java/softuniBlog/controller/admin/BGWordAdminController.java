@@ -91,4 +91,30 @@ public String editProcess(@PathVariable Integer id, BGWordAddModel bgWordAddMode
 
 
 }
+
+@GetMapping("delete/{id}")
+    public String deleteWord(Model model, @PathVariable Integer id){
+    if(!this.bgWordRepository.exists(id)){
+        return "redirect:/admin/bgwords/";
+    }
+    BGWord bgWord = this.bgWordRepository.findOne(id);
+
+    model.addAttribute("bgword",bgWord);
+    model.addAttribute("view","admin/bgword/delete");
+
+    return "base-layout";
+
+    }
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        if(!this.bgWordRepository.exists(id)){
+            return "redirect:/admin/bgwords/";
+        }
+
+        BGWord bgWord = this.bgWordRepository.findOne(id);
+        this.bgWordRepository.delete(bgWord);
+
+        return "redirect:/admin/bgwords/";
+    }
 }

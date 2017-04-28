@@ -22,7 +22,7 @@
                         <td th:text="${bgword.correct}"></td>
                         <td>
                             <a th:href="@{/admin/bgwords/edit/{id}(id = ${bgword.id})}">Промени</a>
-                            <a th:href="@{/admin/categories/delete/{id}(id = ${bgword.id})}">Изтрий</a>
+                            <a th:href="@{/admin/bgwords/delete/{id}(id = ${bgword.id})}">Изтрий</a>
                         </td>
                     </tr>
                     </tbody>

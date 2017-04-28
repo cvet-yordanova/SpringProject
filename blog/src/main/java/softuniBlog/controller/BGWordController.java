@@ -61,11 +61,12 @@ public class BGWordController {
         List<String> result = new ArrayList<String>();
 
         String everything = bgWordTestModel.getEverythingAsString();
-        List<String> list = Arrays.asList(everything.split(" "));
+        List<String> list = Arrays.asList(everything.split(","));
         list.stream().forEach(a -> a.trim());
 
         List<String> givenwords = new ArrayList<>();
         List<String> inputwords = new ArrayList<>();
+        List<String> style = new ArrayList<>();
 
         for (int i = 0; i<10; i+=2){
 
@@ -77,13 +78,15 @@ public class BGWordController {
 
             if(isCorrect(this.bgWordRepository.findByWord(word).getCorrect(), input)){
                 result.add("Вярно");
+                style.add("correct");
             }
             else {
                 result.add("Грешно");
+                style.add("wrong");
             }
 
        }
-
+        model.addAttribute("style",style);
         model.addAttribute("givenwords",givenwords);
         model.addAttribute("inputwords",inputwords);
         model.addAttribute("result", result);
